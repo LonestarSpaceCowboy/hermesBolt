@@ -2,7 +2,7 @@ import React from 'react';
 import { format, isToday, isTomorrow, isYesterday, addDays, startOfToday } from 'date-fns';
 
 interface AgendaViewProps {
-  date: Date;
+  date?: Date;
 }
 
 // Sample data for demonstration
@@ -78,7 +78,7 @@ const groupEventsByDate = (events: typeof sampleEvents): GroupedEvents => {
   }, {});
 };
 
-const AgendaView: React.FC<AgendaViewProps> = ({ date }) => {
+const AgendaView: React.FC<AgendaViewProps> = () => {
   const [expandedEvent, setExpandedEvent] = React.useState<string | null>(null);
   
   // Get a range of 14 days from today

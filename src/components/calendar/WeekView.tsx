@@ -1,5 +1,5 @@
 import React from 'react';
-import { format, startOfWeek, addDays, eachHourOfInterval, startOfDay, endOfDay, addHours, isSameDay, isToday } from 'date-fns';
+import { format, startOfWeek, addDays, eachHourOfInterval, startOfDay, addHours, isSameDay, isToday } from 'date-fns';
 
 interface WeekViewProps {
   date: Date;

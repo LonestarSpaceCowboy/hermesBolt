@@ -55,12 +55,13 @@ const Dashboard: React.FC = () => {
     switch (view) {
       case 'month':
         return format(date, 'MMMM yyyy');
-      case 'week':
-        const startOfWeek = new Date(date);
-        startOfWeek.setDate(date.getDate() - date.getDay());
-        const endOfWeek = new Date(startOfWeek);
-        endOfWeek.setDate(startOfWeek.getDate() + 6);
-        return `${format(startOfWeek, 'MMM d')} - ${format(endOfWeek, 'MMM d, yyyy')}`;
+      case 'week': {
+        const startOfWeekDate = new Date(date);
+        startOfWeekDate.setDate(date.getDate() - date.getDay());
+        const endOfWeekDate = new Date(startOfWeekDate);
+        endOfWeekDate.setDate(startOfWeekDate.getDate() + 6);
+        return `${format(startOfWeekDate, 'MMM d')} - ${format(endOfWeekDate, 'MMM d, yyyy')}`;
+      }
       case 'timeline':
       case 'agenda':
         return format(date, 'EEEE, MMMM d, yyyy');
@@ -150,7 +151,7 @@ const Dashboard: React.FC = () => {
             {view === 'month' && <MonthView date={date} />}
             {view === 'week' && <WeekView date={date} />}
             {view === 'timeline' && <TimelineView date={date} />}
-            {view === 'agenda' && <AgendaView date={date} />}
+            {view === 'agenda' && <AgendaView />}
           </div>
         </div>
       </div>
