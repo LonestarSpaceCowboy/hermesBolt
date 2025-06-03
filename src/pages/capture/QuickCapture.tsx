@@ -38,11 +38,11 @@ const QuickCapture: React.FC = () => {
   
   const processInput = async (input: string) => {
     setIsProcessing(true);
-    
+
     // Simulate API call to OpenAI
     setTimeout(() => {
       setResult({
-        title: "Call Sarah about the project proposal",
+        title: input,
         date: "Tomorrow",
         time: "2:00 PM",
         type: "event"
